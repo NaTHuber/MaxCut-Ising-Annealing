@@ -57,6 +57,5 @@ _Ejemplo de un grafo y una de sus posibles configuraciones_
     style J fill: #899950ff
 
 ```
-
-
-
+Otro punto importante es mencionar el enfoque que se le dará, en este caso en vez de pensar en dividir nodos, se visualiza como **la asignación de estados binarios a un sistema con interacciones**, en donde cada nodo es una variable binaria que recibe su estado, mientras que el sistema completo tiene una configuración y una energía asociada. Por lo que se buscará encontrar configuraciones de baja energía. 
+Además no se busca un óptimo exacto, sino entender el comportamiento del solver, en general estudiarlo como un sistema físico explorando su espacio de estados. 
