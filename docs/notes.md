@@ -76,3 +76,23 @@ por lo que:
 - Mínimizar la energía del sistema será equivalente a maximizar el corte. 
 
 Cabe mencionar que se está usando un modelo de Ising sin campos externos y sin ninguna dependencia temporal en el Hamiltoniano. 
+
+> **Nota importante:** Una vez formulado el problema como un sistema físico, la pregunta deja de ser “cómo encontrar la mejor partición” y se convierte en “cómo permitir que el sistema explore eficientemente su paisaje de energía”.
+
+## Dinámica 
+En esta sección se busca definir una regla de evolución que le diga al sistema cómo moverse en el paisaje de energía. En este caso **Simulated Annealing** está inspirado en un proceso físico reconocido de enfriar lentamente un material permitiendo que explore estados y se "congele" en un mínimo profundo. De manera general un paso en la dinámica se compone de:
+
+```mermaid
+    graph TD
+    A[Se tiene una configuración **s**]
+    B[Se propone cambiarla ligeramente]
+    C[Se evalúa si el cambio es aceptado]
+
+    A --> B
+    B --> C
+
+    style A fill: #77375dff
+    style B fill: #77375dff
+    style C fill: #77375dff
+```
+Para este caso la **regla de aceptación** la define el **algoritmo de Metropolis**. 
