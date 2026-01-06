@@ -59,3 +59,20 @@ _Ejemplo de un grafo y una de sus posibles configuraciones_
 ```
 Otro punto importante es mencionar el enfoque que se le dará, en este caso en vez de pensar en dividir nodos, se visualiza como **la asignación de estados binarios a un sistema con interacciones**, en donde cada nodo es una variable binaria que recibe su estado, mientras que el sistema completo tiene una configuración y una energía asociada. Por lo que se buscará encontrar configuraciones de baja energía. 
 Además no se busca un óptimo exacto, sino entender el comportamiento del solver, en general estudiarlo como un sistema físico explorando su espacio de estados. 
+
+## Modelo Físico 
+Definimos cada nodo como una varible física binaria (spin)
+$$ s_i \in \{-1, 1\} $$
+y una configuración del sistema como 
+$$ \textbf{s} = (s_1, s_2 , ... , s_N)$$
+por lo que una solución al problema es un estado físico del sistema.
+Teniendo que la energía del sistema estará dada por:
+$$ E(\textbf{s}) = \sum_{(i,j) \in E} J_{ij}s_is_j$$
+por lo que:
+
+- Si dos spines contectado son iguales contribuyen positivamente
+- Si dos spines conectados son opuestos contribuyen negativamente 
+- $J_{ii} < 0$ por lo que el sistema prefiere spines conectados de manera opuesta 
+- Mínimizar la energía del sistema será equivalente a maximizar el corte. 
+
+Cabe mencionar que se está usando un modelo de Ising sin campos externos y sin ninguna dependencia temporal en el Hamiltoniano. 
