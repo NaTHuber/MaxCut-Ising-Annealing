@@ -96,3 +96,17 @@ En esta sección se busca definir una regla de evolución que le diga al sistema
     style C fill: #77375dff
 ```
 Para este caso la **regla de aceptación** la define el **algoritmo de Metropolis**. 
+
+Se tiene un spin $s_i$, se propone $s_i → -s_i$, además se tiene el cambio de energía dado por:
+
+$$\Delta E = E_{new} - E_{old} $$
+
+- Si $\Delta E < 0$ entonces se acepta 
+- Si $\Delta E > 0$ entonces se acepta con la probabilidad
+$$P = \exp(-\Delta E / T)$$
+
+en este caso el rol de la temperatura controla qué tan probable es aceptar movimientos "malos".
+Analizando los casos límites
+
+- $T → 0$: Solo se aceptan mejoras 
+- $T → ∞$: Se acpetan casi todo, equivalente a un random walk
