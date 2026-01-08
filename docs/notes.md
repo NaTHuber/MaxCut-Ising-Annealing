@@ -11,15 +11,18 @@ Este proyecto tiene como objetivo:
     A[Problema]
     B[Modelo Físico]
     C[Dinámica]
-    D[Resultados]
+    D[Diseño experimental]
+    E[Resultados]
     A --> B
     B --> C
     C --> D
+    D --> E
 
     style A fill: #3f2ea0ff
     style B fill: #6352c7ff
     style C fill: #5b5099ff
-    style D fill: #9a8edaff
+    style D fill: #7067a4ff
+    style E fill: #9a8edaff
 ```
 **Pregunta foco**
 >_¿Cómo influye la temperatura inicial en la capacidad del sistema para encontrar buenas soluciones?_
@@ -109,4 +112,45 @@ en este caso el rol de la temperatura controla qué tan probable es aceptar movi
 Analizando los casos límites
 
 - $T → 0$: Solo se aceptan mejoras 
-- $T → ∞$: Se acpetan casi todo, equivalente a un random walk
+- $T → ∞$: Se aceptan casi todo, equivalente a un random walk
+
+Además, para el enfriamiento se usará un Schedule lineal ya que se está priorizando la claridad y este resulta suficiente 
+
+$$ T(t) = T_0 - (T_0 - T_f)\dfrac{t}{N_{steps}}$$
+
+es importante recordar que para este experimento se van a fijar el resto de los parámetros excepto justamente la $T_0$.
+
+De esta manera podemos obtener las siguientes ideas principales:
+
+- La dinámica estocástica permite explorar el paisaje de energía.
+- La regla de Metropolis introduce aceptación probabilística.
+- La temperatura controla el balance exploración–explotación.
+- El enfriamiento progresivo favorece la convergencia.
+- El comportamiento final depende críticamente de los parámetros.
+- El solver es inherentemente probabilístico.
+
+## Diseño experimental
+En esta sección se busca responder a la pregunta base _¿Cómo cambia el comportamiento de un solver estocástico cuando se varía un parámetro físico?._ Por lo que vale la pena definir cuales serán los parámetros fijos en el experimento.
+
+**Parámetros fijos**
+- Grafo 
+- Número de Nodos $N$
+- Pesos de las aristas 
+- Número de pasos del SA
+
+**Parámetro variable**
+- Temperatura inicial $T_0$
+
+Para cada valor de $T_0$ 
+
+```mermaid 
+    graph TD
+    A[1 <br> Inicializar el sistema con spins aleatorios]
+    B[2 <br> Ejecutar Simulated Anneling]
+    C[3 <br> Registrar: Energía final, mejor energía alcanzada, valor del corte]
+    D[4 <br> Repetir M veces]
+    
+    A --> B
+    B --> C
+    C --> D
+```
