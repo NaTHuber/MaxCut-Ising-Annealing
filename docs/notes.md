@@ -65,12 +65,18 @@ Además no se busca un óptimo exacto, sino entender el comportamiento del solve
 
 ## Modelo Físico 
 Definimos cada nodo como una varible física binaria (spin)
+
 $$ s_i \in \{-1, 1\} $$
+
 y una configuración del sistema como 
+
 $$ \textbf{s} = (s_1, s_2 , ... , s_N)$$
+
 por lo que una solución al problema es un estado físico del sistema.
 Teniendo que la energía del sistema estará dada por:
+
 $$ E(\textbf{s}) = \sum_{(i,j) \in E} J_{ij}s_is_j$$
+
 por lo que:
 
 - Si dos spines contectado son iguales contribuyen positivamente
@@ -98,6 +104,7 @@ En esta sección se busca definir una regla de evolución que le diga al sistema
     style B fill: #77375dff
     style C fill: #77375dff
 ```
+
 Para este caso la **regla de aceptación** la define el **algoritmo de Metropolis**. 
 
 Se tiene un spin $s_i$, se propone $s_i → -s_i$, además se tiene el cambio de energía dado por:
@@ -106,7 +113,8 @@ $$\Delta E = E_{new} - E_{old} $$
 
 - Si $\Delta E < 0$ entonces se acepta 
 - Si $\Delta E > 0$ entonces se acepta con la probabilidad
-$$P = \exp(-\Delta E / T)$$
+    
+    $$P = \exp(-\Delta E / T)$$
 
 en este caso el rol de la temperatura controla qué tan probable es aceptar movimientos "malos".
 Analizando los casos límites
