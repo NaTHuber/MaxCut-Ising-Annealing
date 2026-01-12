@@ -138,7 +138,7 @@ De esta manera podemos obtener las siguientes ideas principales:
 - El solver es inherentemente probabilístico.
 
 ## Diseño experimental
-En esta sección se busca responder a la pregunta base _¿Cómo cambia el comportamiento de un solver estocástico cuando se varía un parámetro físico?._ Por lo que vale la pena definir cuales serán los parámetros fijos en el experimento.
+En esta sección se busca responder a la pregunta base _¿Cómo cambia el comportamiento de un solver estocástico cuando se varía un parámetro físico?_ Por lo que vale la pena definir cuales serán los parámetros fijos en el experimento.
 
 **Parámetros fijos**
 - Grafo 
@@ -152,7 +152,7 @@ En esta sección se busca responder a la pregunta base _¿Cómo cambia el compor
 Para cada valor de $T_0$ 
 
 ```mermaid 
-    graph TD
+    graph LR
     A[1 <br> Inicializar el sistema con spins aleatorios]
     B[2 <br> Ejecutar Simulated Anneling]
     C[3 <br> Registrar: Energía final, mejor energía alcanzada, valor del corte]
@@ -161,4 +161,24 @@ Para cada valor de $T_0$
     A --> B
     B --> C
     C --> D
+
+    style A fill: #7067a4ff
+    style B fill: #7067a4ff
+    style C fill: #7067a4ff
+    style D fill: #7067a4ff
+```
+El esquema anterior se plasmó en la siguiente estructura de código dentro del notebook `main.ipynb`.
+
+```mermaid
+    graph TD
+    A[1 <br> Crear un grafo aleatorio usando el modelo Erdős-Rényi] --> B[ 2 <br> Definición del valor del corte y de la energía Ising]
+    B --> C[3 <br> Calculo del cambio de energía al voltear un spin]
+    C --> D[4 <br> Implementación de Simulated Annealing]
+    D --> E[5 <br> Definición del experimento, barrido en T_0 para múltiples corridas]
+    
+    style A fill: #915a7bff
+    style B fill: #915a7bff
+    style C fill: #915a7bff
+    style D fill: #915a7bff 
+    style E fill: #915a7bff
 ```
