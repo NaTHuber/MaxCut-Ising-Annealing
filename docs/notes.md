@@ -122,7 +122,7 @@ Analizando los casos límites
 - $T → 0$: Solo se aceptan mejoras 
 - $T → ∞$: Se aceptan casi todo, equivalente a un random walk
 
-Además, para el enfriamiento se usará un Schedule lineal ya que se está priorizando la claridad y este resulta suficiente 
+Además, para el enfriamiento se usará un Schedule lineal(la temperatura disminuye linealmente) ya que se está priorizando la claridad y este resulta suficiente 
 
 $$ T(t) = T_0 - (T_0 - T_f)\dfrac{t}{N_{steps}}$$
 
