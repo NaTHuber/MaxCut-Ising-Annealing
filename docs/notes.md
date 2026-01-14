@@ -167,7 +167,7 @@ Para cada valor de $T_0$
     style C fill: #7067a4ff
     style D fill: #7067a4ff
 ```
-El esquema anterior se plasmó en la siguiente estructura de código dentro del notebook `main.ipynb`.
+El esquema anterior se plasmó en la siguiente estructura de código dentro del notebook `01_baseline_temperature_analysis.ipynb`.
 
 ```mermaid
     graph TD
@@ -210,4 +210,5 @@ Al analizar los resultados de las métricas obtenidas para las diferentes temper
 
 - Finalmente, para $T_0 = 10$, aunque el sistema sigue encontrando el mejor óptimo identificado hasta ahora, la energía promedio final empeora considerablemente y la desviación estándar aumenta de manera notable. Esto indica un exceso de ruido, probablemente debido a una exploración excesiva.
 
-> **A través de este pequeño experimento, podemos concluir que existe un rango intermedio de temperaturas iniciales en el cual el solver alcanza soluciones de mayor calidad y estabilidad. Temperaturas demasiado bajas conducen a un congelamiento prematuro, mientras que temperaturas demasiado altas introducen un ruido significativo que dificulta la convergencia final 🌱** 
+> **A través de este pequeño experimento, podemos concluir que existe un rango intermedio de temperaturas iniciales en el cual el solver alcanza soluciones de mayor calidad y estabilidad. Temperaturas demasiado bajas conducen a un congelamiento prematuro, mientras que temperaturas demasiado altas introducen un ruido significativo que dificulta la convergencia final. Dado que el desempeño del solver depende de manera no trivial de la temperatura inicial y presenta variabilidad inherente, es natural formular el problema de selección de parámetros como un problema de aprendizaje supervisado y optimización bayesiana.🌱**
+
