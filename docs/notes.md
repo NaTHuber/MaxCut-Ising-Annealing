@@ -182,3 +182,17 @@ El esquema anterior se plasmó en la siguiente estructura de código dentro del 
     style D fill: #915a7bff 
     style E fill: #915a7bff
 ```
+
+## Resultados 
+A continuación de muestran los resultados obtenidos en esta primera fase de experimentación 
+### Representación gráfica del grafo estudiado 
+![Grafo aleatorio ponderado](img/grafo_1.png)
+
+### Tabla con los valores de SA para diferentes temperaturas iniciales y múltiples corridas
+| T0 | runs | best_energy_mean | best_energy_std | best_cut_mean | best_cut_std | final_energy_mean | final_energy_std | final_cut_mean | final_cut_std |
+|---|---|---|---|---|---|---|---|---|---|
+| 0.5 | 10 | -50.7 | 1.702939 | 50.7 | 1.702939 | -50.7 | 1.702939 | 50.7 | 1.702939 |
+| 1.0 | 10 | -50.9 | 0.994429 | 50.9 | 0.994429 | -50.9 | 0.994429 | 50.9 | 0.994429 |
+| 2.0 | 10 | -51.9 | 0.316228 | 51.9 | 0.316228 | -50.6 | 0.843274 | 50.6 | 0.843274 |
+| 5.0 | 10 | -52.0 | 0.000000 | 52.0 | 0.000000 | -51.1 | 1.100505 | 51.1 | 1.100505 |
+| 10.0 | 10 | -52.0 | 0.000000 | 52.0 | 0.000000 | -50.9 | 1.595131 | 50.9 | 1.595131 |
