@@ -196,3 +196,18 @@ A continuación de muestran los resultados obtenidos en esta primera fase de exp
 | 2.0 | 10 | -51.9 | 0.316228 | 51.9 | 0.316228 | -50.6 | 0.843274 | 50.6 | 0.843274 |
 | 5.0 | 10 | -52.0 | 0.000000 | 52.0 | 0.000000 | -51.1 | 1.100505 | 51.1 | 1.100505 |
 | 10.0 | 10 | -52.0 | 0.000000 | 52.0 | 0.000000 | -50.9 | 1.595131 | 50.9 | 1.595131 |
+
+### Análisis de resultados 
+Al analizar los resultados de las métricas obtenidas para las diferentes temperaturas iniciales ($T_0$), observamos lo siguiente:
+
+- Para $T_0 = 0.5$, el sistema se congela muy rápidamente y explora poco el espacio de soluciones, por lo que es más probable que quede atrapado en mínimos locales.
+
+- En el caso de $T_0 = 1$, se aprecia una mejora mínima en comparación con $T_0 = 0.5$.
+
+- Para $T_0 = 2$, se observa una mejora considerable tanto en el valor de energía promedio final como en la desviación estándar, lo que indica un mejor balance entre exploración y explotación.
+
+- Respecto a $T_0 = 5$, se percibe una ligera mejora comparada con $T_0 = 2$, pero la desviación estándar es cero, lo que sugiere que el sistema converge siempre al mismo óptimo.
+
+- Finalmente, para $T_0 = 10$, aunque el sistema sigue encontrando el mejor óptimo identificado hasta ahora, la energía promedio final empeora considerablemente y la desviación estándar aumenta de manera notable. Esto indica un exceso de ruido, probablemente debido a una exploración excesiva.
+
+> **A través de este pequeño experimento, podemos concluir que existe un rango intermedio de temperaturas iniciales en el cual el solver alcanza soluciones de mayor calidad y estabilidad. Temperaturas demasiado bajas conducen a un congelamiento prematuro, mientras que temperaturas demasiado altas introducen un ruido significativo que dificulta la convergencia final 🌱** 
