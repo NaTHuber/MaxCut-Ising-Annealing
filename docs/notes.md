@@ -212,3 +212,20 @@ Al analizar los resultados de las métricas obtenidas para las diferentes temper
 
 > **A través de este pequeño experimento, podemos concluir que existe un rango intermedio de temperaturas iniciales en el cual el solver alcanza soluciones de mayor calidad y estabilidad. Temperaturas demasiado bajas conducen a un congelamiento prematuro, mientras que temperaturas demasiado altas introducen un ruido significativo que dificulta la convergencia final. Dado que el desempeño del solver depende de manera no trivial de la temperatura inicial y presenta variabilidad inherente, es natural formular el problema de selección de parámetros como un problema de aprendizaje supervisado y optimización bayesiana.🌱**
 
+## Regresión Supervisada 
+
+![Best cut mean vs log(t0)](img/best_cut_mean_vs_logt0.png)
+
+| model         | MAE     | MSE     | RMSE    | R2        |
+|---------------|---------|---------|---------|-----------|
+| Poly2         | 0.416436| 0.495598| 0.703987| 0.427831  |
+| Poly3_Ridge   | 0.442983| 0.519246| 0.720587| 0.400529  |
+| Linear        | 0.526772| 0.612168| 0.782411| 0.293250  |
+
+![Surrogate Regression](img/surrogate_regression.png)
+
+## Optimización Bayesiana 
+
+![gaussian_process](img/gaussian_process.png)
+
+![acquisition_function](img/acquisition_fuction.png)
