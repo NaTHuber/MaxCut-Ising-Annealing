@@ -43,6 +43,88 @@ At each step:
 - The move is accepted based on temperature-dependent probability
 
 The temperature schedule is linear:
+
 $$
 T(t) = T_0 - (T_0 - T_f)\dfrac{t}{N_{steps}}
 $$
+
+All parameters are kept fixed except the initial temperature $T_0$, which is the focus of the study.
+
+## Experimental Design
+
+For each value of $T_0$
+
+```mermaid 
+    graph LR
+    A[1 <br> Initialize random spin configurations]
+    B[2 <br> Run Simulated Annealing]
+    C[3 <br> Record: Best energy achieved, Final energy, Best cut value]
+    D[4 <br> Repeat multiple stochastic runs]
+
+    A --> B
+    B --> C
+    C --> D
+
+    style A fill: #7067a4ff
+    style B fill: #7067a4ff
+    style C fill: #7067a4ff
+    style D fill: #7067a4ff
+
+```
+
+
+This allows us to capture both mean performance and intrinsic variability of the solver.
+
+## Project Phases 
+
+```mermaid
+    graph LR
+    A[Phase 1 – Baseline Temperature Analysis]
+    B[Phase 2 - Supervised Regression for Parameter Prediction]
+    C[Phase 3 – Bayesian Optimization]
+    A --> B
+    B --> C
+
+    style A fill: #318291
+    style B fill: #318291
+    style C fill: #318291
+```
+### Phase 1 – Baseline Temperature Analysis
+Notebook: `01_baseline_temperature_analysis.ipynb`
+
+Key observations:
+- Low $T_0$: premature freezing, poor exploration 
+- Intermediate $T_0$: it gave the best balance between exploration and exploitation 
+- Hight $T_0$: excessive noise, degraded convergence
+
+This reveals a non-trivial dependency between solver performance and temperature.
+
+### Phase 2 - Supervised Regression for Parameter Prediction
+Notebook: `02_supervised_regression_parameter_prediction.ipynb`
+Each stochastic run is treated as a data point, forming a supervised dataset:
+- input: $\log(T_0)$
+- Target: best cute value 
+
+Three regression models are trained (Linear, Polynomial, Ridge), showing that:
+
+- Linear models underfit
+- Low-degree polynomial models capture the non-linear trend
+- Performance is inherently noisy, reflecting solver stochasticity
+
+This step reframes parameter selection as a supervised learning problem.
+
+### Phase 3 – Bayesian Optimization
+Notebook: `03_bayesian_optimization.ipynb`
+
+Bayesian Optimization is applied to efficiently search the parameter space:
+
+- A Gaussian Process (GP) models solver performance and uncertainty
+- Expected Improvement (EI) balances exploration and exploitation
+- The method identifies promising temperature regions without exhaustive search
+
+This approach mirrors real-world scenarios where:
+
+- Evaluations are expensive
+- The objective function is unknown
+- Uncertainty must be explicitly modeled
+
