@@ -128,3 +128,36 @@ This approach mirrors real-world scenarios where:
 - The objective function is unknown
 - Uncertainty must be explicitly modeled
 
+## Repository Structure
+```
+MAXCUT-ISING-ANNEALING/
+│
+├── code/
+│   ├── 01_baseline_temperature_analysis.ipynb
+│   ├── 02_supervised_regression_parameter_prediction.ipynb
+│   └── 03_bayesian_optimization.ipynb
+├── data/
+│   └── sa_maxcut_runs_dataset.csv
+├── docs/
+│   └── img/
+├── notes.md
+└── README.md
+
+```
+## Final comments 
+This project serves as a very minimal but complete pipeline connecting:
+
+- NP-hard optimization
+- Physical models (Ising)
+- Stochastic dynamics
+- Supervised learning
+- Bayesian optimization
+
+The framework can be extended to:
+
+- Multiple parameters
+- Larger graphs
+- Hardware-based probabilistic computing
+
+## Contact 
+If you found the project interesting, please feel free to contact me at [nbaezhuber@gmail.com](mailto:nbaezhuber@gmail.com)
